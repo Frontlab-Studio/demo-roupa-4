@@ -12,9 +12,7 @@
     box-sizing: border-box;
 }
 
-/* VACINA MOBILE: Trava a largura e remove rolagem lateral */
-html,
-body {
+html,body {
     width: 100%;
     overflow-x: hidden;
     background-color: var(--white);
@@ -144,7 +142,8 @@ nav {
     justify-content: center;
     align-items: center;
 }
-#author{
+
+#author {
     color: aqua;
 }
 
@@ -193,14 +192,12 @@ nav {
 
 /* --- HERO --- */
 .hero {
-    /* CORREÇÃO: Altura dinâmica para celular */
     min-height: 100vh;
     min-height: 100dvh;
     background: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
     position: relative;
     display: flex;
     align-items: center;
-    /* Espaço extra no topo para o menu não cobrir o texto */
     padding-top: 80px;
 }
 
@@ -346,7 +343,6 @@ nav {
 
 .product-grid {
     display: grid;
-    /* Ajuste para 250px seguro no mobile */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
@@ -772,7 +768,6 @@ footer {
         display: block;
     }
 
-    /* Hero ajustado para mobile */
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -781,10 +776,8 @@ footer {
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 100px;
-        /* Garante que o texto saia debaixo do menu */
     }
 
-    /* Grids em 1 coluna */
     .promo-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -803,7 +796,6 @@ footer {
         gap: 30px;
     }
 
-    /* Vitrine: mantive 2 colunas se couber, mas seguro */
     .product-grid {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         gap: 15px;
@@ -826,5 +818,78 @@ footer {
 @media (min-width: 1400px) {
     .hero-content {
         margin-top: 80px;
+    }
+}
+
+/* ==========================================================================
+   ASSINATURA FRONTLAB STUDIO (HIGH-TECH LEAD MAGNET) - GLOBAL
+   ========================================================================== */
+
+.copyright p {
+    margin-bottom: 5px;
+}
+
+.frontlab-signature {
+    position: relative;
+    font-family: monospace, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-dark);
+    opacity: 0.6; 
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+/* Efeito de "Brackets" de código que surgem no hover */
+.frontlab-signature::before,
+.frontlab-signature::after {
+    content: '';
+    opacity: 0;
+    color: var(--black);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.frontlab-signature::before {
+    content: '[';
+    transform: translateX(10px);
+}
+
+.frontlab-signature::after {
+    content: ']';
+    transform: translateX(-10px);
+}
+
+/* Indicador de Servidor Online / Alta Performance */
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #00ff66;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+    animation: serverPulse 2s infinite;
+}
+
+@keyframes serverPulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; box-shadow: 0 0 12px rgba(0, 255, 102, 0.8); }
+    100% { opacity: 0.4; }
+}
+
+/* O gatilho de interação (Protegido contra toques acidentais em mobile) */
+@media (hover: hover) {
+    .frontlab-signature:hover {
+        opacity: 1;
+        color: var(--black);
+    }
+
+    .frontlab-signature:hover::before,
+    .frontlab-signature:hover::after {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
